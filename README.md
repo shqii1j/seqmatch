@@ -8,7 +8,7 @@ The code is for training expert trajectories and distilling synthetic data from 
 #### Download
 ```bash
 git clone https://github.com/shqii1j/seqmatch.git
-cd seqmatch/seqmatch-mtt
+cd seqmatch
 ```
 #### The requirement for SeqMatch in MTT model
 If you have an RTX 30XX GPU (or newer), run
@@ -39,6 +39,7 @@ If not, install the packages ```pytorch``` and ```efficientnet_pytorch```
 ### Sequential Subset Matching in MTT
 There is an example .sh file to use our code. This command will generate 3 subsets to distill CIFAR-10 50 image per class:
 ```bash
+cd seqmatch-mtt
 python run.sh
 ```
 
@@ -67,6 +68,7 @@ When generating expert trajectories with ```buffer.py``` or distilling the datas
 ### Sequential Subset Matching in IDC
 There is an example .sh file to use our code. This command will generate 2 subsets to distill CIFAR-10 50 image per class (25 image per class in one subset):
 ```bash
+cd seqmatch-idc
 python condense_new.py --reproduce -d cifar10 -f 2 --ipcs=[25,25] --inner_loop=[50,100] --niters=[2000,4000] --lrs_img_ori=[5e-3,5e-3] --it_log=100 --it_eval=100 --seed=2023 --fix_iter=50
 ```
 You can get more robust result (repeat test 5 times) via th following code:
